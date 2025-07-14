@@ -1,51 +1,53 @@
-<html>
-    <head>
-        <style>
-        body {
-            margin: 0;
-            font-family: Helvetica, sans-serif;
-            background-color: #f4f4f4;
-          }
-        
-          
-          a {
-            color: #000;
-          }
-          
-          /* header */
-          
-          .header {
-            background-color: #fff;
-            box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
-             height: auto; /* 高度由內容決定 */
-             position: relative;
-            width: 100%;
-            z-index: 3;
-             overflow: hidden;
-          }
-          
-          .header ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            overflow: hidden;
-            background-color: #fff;
-          }
-          
-          .header li a {
-            display: block;
-            padding: 20px 20px;
-            border-right: 1px solid #f4f4f4;
-            text-decoration: none;
-          }
-          
-          .header li a:hover,
-          .header .menu-btn:hover {
-            background-color: #f4f4f4;
-          }
-          
-          .header .logo {
-            display: block;
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>響應式選單</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Helvetica, sans-serif;
+      background-color: #f4f4f4;
+      font-size: 1.3em; /* 小螢幕字體稍微放大 */
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .header {
+      background-color: #fff;
+      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      width: 100%;
+      z-index: 3;
+      overflow: hidden;
+    }
+
+    .header ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      overflow: hidden;
+      background-color: #fff;
+    }
+
+    .header li a {
+      display: block;
+      padding: 20px 20px;
+      border-right: 1px solid #f4f4f4;
+      font-size: 1.3em; /* 小螢幕放大 30% */
+    }
+
+    .header li a:hover,
+    .header .menu-btn:hover {
+      background-color: #f4f4f4;
+    }
+
+    .header .logo {
+         display: block;
             float: left;
             font-size: 2em;
             padding: 10px 20px;
@@ -54,124 +56,133 @@
             display: flex; /* 使用 flex 排列圖片與文字 */
             align-items: center; /* 垂直置中 */
             gap: 10px; /* 圖片與文字之間的間距 */
-          }
-          .header .logo img {
-             height: 1.5em; /* 調整圖片大小與文字比例相近 */
-             width: auto;
-            }
-          
-          /* menu */
-          
-          .header .menu {
-            clear: both;
-            max-height: 0;
-            transition: max-height .2s ease-out;
+    }
 
-          }
-          
-          /* menu icon */
-          
-          .header .menu-icon {
-            cursor: pointer;
-            display: inline;
-            float: right; 
-            padding: 28px 20px; 
-            position: relative;
-            user-select: none;
-          }
-          
-          .header .menu-icon .navicon {
-            background: #333;
-            display: block;
-            height: 2px;
-            position: relative;
-            transition: background .2s ease-out;
-            width: 18px;
-          }
-          
-          .header .menu-icon .navicon:before,
-          .header .menu-icon .navicon:after {
-            background: #333;
-            content: '';
-            display: block;
-            height: 100%;
-            position: absolute;
-            transition: all .2s ease-out;
-            width: 100%;
-          }
-          
-          .header .menu-icon .navicon:before {
-            top: 5px;
-          }
-          
-          .header .menu-icon .navicon:after {
-            top: -5px;
-          }
-          
-          /* menu btn */
-          
-          .header .menu-btn {
-            display: none;
-          
-          }
-          
-          .header .menu-btn:checked ~ .menu {
-            max-height: 240px;
-          }
-          
-          .header .menu-btn:checked ~ .menu-icon .navicon {
-            background: transparent;
-          }
-          
-          .header .menu-btn:checked ~ .menu-icon .navicon:before {
-            transform: rotate(-45deg);
-          }
-          
-          .header .menu-btn:checked ~ .menu-icon .navicon:after {
-            transform: rotate(45deg);
-          }
-          
-          .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-          .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
-            top: 0;
-          }
-          
-          /* 48em = 768px */
-          
-          @media (min-width: 1024px) {
-            .header li {
-              float: left;
-            }
-            .header li a {
-              padding: 20px 30px;
-            }
-            .header .menu {
-              clear: none;
-              float: right;
-              max-height: none;
-            }
-            .header .menu-icon {
-              display: none;
-            }
-          }
-        </style>
-          
-    </head>
-    <body>
-        <header class="header">
-            <a href="" class="logo"><img src="logo.png" alt="Logo">洋威網站</a>
-            <input class="menu-btn" type="checkbox" id="menu-btn" />
-            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-            <ul class="menu">
-              <li><a href="#work">公司沿革</a></li>
-              <li><a href="#about">關於我們</a></li>
-              <li><a href="#careers">公司產品</a></li>
-              <li><a href="#contact">聯繫我們</a></li>
-            </ul>
-          </header>
-           <div>
-             本網站專門介紹洋威公司的歷史
-             </div>
-        
-    </body>   
+    .header .logo img {
+      height: 1.3em;
+      width: auto;
+    }
+
+    /* 漢堡選單相關樣式 */
+    .header .menu {
+      clear: both;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+    }
+
+    .header .menu-icon {
+      cursor: pointer;
+      float: right;
+      padding: 28px 20px;
+      user-select: none;
+      transform: scale(1.3); /* ✅ 放大整個圖示 */
+      transform-origin: top right;
+       
+    }
+
+    .header .menu-icon .navicon {
+      background: #333;
+      display: block;
+      height: 2px;
+      position: relative;
+      width: 18px;
+      transition: background 0.2s ease-out;
+    }
+
+    .header .menu-icon .navicon:before,
+    .header .menu-icon .navicon:after {
+      content: '';
+      background: #333;
+      display: block;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      transition: all 0.2s ease-out;
+    }
+
+    .header .menu-icon .navicon:before {
+      top: 5px;
+    }
+
+    .header .menu-icon .navicon:after {
+      top: -5px;
+    }
+
+    .header .menu-btn {
+      display: none;
+    }
+
+    .header .menu-btn:checked ~ .menu {
+      max-height: 300px;
+    }
+
+    .header .menu-btn:checked ~ .menu-icon .navicon {
+      background: transparent;
+    }
+
+    .header .menu-btn:checked ~ .menu-icon .navicon:before {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+
+    .header .menu-btn:checked ~ .menu-icon .navicon:after {
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    /* 桌面版樣式（大於等於 1024px） */
+    @media (min-width: 1024px) {
+      body {
+        font-size: 1em; /* 恢復正常字體大小 */
+      }
+
+      .header li {
+        float: left;
+      }
+
+      .header li a {
+        padding: 20px 30px;
+        font-size: 1.3em; /* 正常字體大小 */
+      }
+
+      .header .menu {
+        clear: none;
+        float: right;
+        max-height: none;
+      }
+     .header .menu-icon {
+    display: none; /* ✅ 大螢幕應該隱藏漢堡圖示 */
+  }
+
+      @media (max-width: 1023px) {
+  .header .menu-icon .navicon,
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    height: 3px;  /* 原本是 2px，更明顯 */
+    width: 24px;  /* 原本是 18px，更清楚 */
+  }
+}
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a href="#" class="logo">
+      <img src="logo.png" alt="Logo">
+      洋威網站
+    </a>
+    <input class="menu-btn" type="checkbox" id="menu-btn">
+    <label class="menu-icon" for="menu-btn">
+      <span class="navicon"></span>
+    </label>
+    <ul class="menu">
+      <li><a href="#">首頁</a></li>
+      <li><a href="#">關於我們</a></li>
+      <li><a href="#">產品服務</a></li>
+      <li><a href="#">聯絡我們</a></li>
+    </ul>
+  </header>
+  哈樓您好
+</body>
 </html>
