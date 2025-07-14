@@ -6,6 +6,7 @@
             font-family: Helvetica, sans-serif;
             background-color: #f4f4f4;
           }
+        
           
           a {
             color: #000;
@@ -16,10 +17,11 @@
           .header {
             background-color: #fff;
             box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
-            position: fixed;
+             height: auto; /* 高度由內容決定 */
+             position: relative;
             width: 100%;
             z-index: 3;
-
+             overflow: hidden;
           }
           
           .header ul {
@@ -167,6 +169,9 @@
               <li><a href="#contact">聯繫我們</a></li>
             </ul>
           </header>
-        <p>本網站專門介紹洋威公司的歷史</p>
+           <div>
+             本網站專門介紹洋威公司的歷史
+             </div>
+        
     </body>   
 </html>
