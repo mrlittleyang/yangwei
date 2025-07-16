@@ -141,9 +141,9 @@
       margin: 0;
       top: 100%;
       left: 0;
-      width: 50px;
+      width: 100%;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      z-index: 9999;
+      z-index: 10;
     }
 
     .submenu li {
@@ -152,9 +152,8 @@
 }
 
 .submenu li a {
-  display: block;        /* ✅ 填滿整個選項區域 */
-  padding: 12px 20px;
- 
+  display: block;/* ✅ 填滿整個選項區域 */
+  padding: 0;   
 }
 
 .dropdown.open > .submenu {
@@ -174,7 +173,7 @@
 .dropdown.open > .dropdown-toggle::after {
   transform: rotate(180deg); /* 讓箭頭向上 */
 }
-      .self-introduction {
+         .self-introduction {
   background-color: #f8f8f8;
   padding: 20px;
   border-radius: 5px;
@@ -192,6 +191,7 @@
   margin-bottom: 15px;
 }
     
+
 
 
 
@@ -215,8 +215,43 @@
   .header .menu-icon {
     display: none;
   }
+      .submenu {
+      display: none;
+      position: abosolute;
+      background-color: white;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      top: 100%;
+      left: 0;
+      height:100%;
+      width: 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    .submenu li {
+  display: block;  
+      
 }
+
+.submenu li a {
+  display: block;        /* ✅ 填滿整個選項區域 */
+  padding: 0;
+  white-space: nowrap;
+ 
+}
+
+.dropdown.open > .submenu {
+  display: block;
+
   
+}
+}
+
+
+
+   
     /* 小螢幕時加強漢堡條 */
     @media (max-width: 849px) {
       .header .menu-icon .navicon,
