@@ -9,7 +9,7 @@
       margin: 0;
       font-family: Helvetica, sans-serif;
       background-color: #f4f4f4;
-      font-size: 1.3em; /* 小螢幕字體稍微放大 */
+      font-size: 1.3em;
     }
 
     a {
@@ -24,21 +24,26 @@
       width: 100%;
       z-index: 3;
       overflow: hidden;
+      
     }
 
     .header ul {
       margin: 0;
       padding: 0;
       list-style: none;
-      overflow: hidden;
       background-color: #fff;
+      position: static; /* ✅ 不要加 relative */
+    }
+
+    .header li {
+      position: relative;
     }
 
     .header li a {
       display: block;
       padding: 20px 20px;
       border-right: 1px solid #f4f4f4;
-      font-size: 1.3em; /* 小螢幕放大 30% */
+      font-size: 1.3em;
     }
 
     .header li a:hover,
@@ -47,15 +52,12 @@
     }
 
     .header .logo {
-         display: block;
-            float: left;
-            font-size: 2em;
-            padding: 10px 20px;
-            text-decoration: none;
-            color: black;
-            display: flex; /* 使用 flex 排列圖片與文字 */
-            align-items: center; /* 垂直置中 */
-            gap: 10px; /* 圖片與文字之間的間距 */
+      display: flex;
+      align-items: center;
+      font-size: 2em;
+      padding: 10px 20px;
+      color: black;
+      gap: 10px;
     }
 
     .header .logo img {
@@ -63,12 +65,11 @@
       width: auto;
     }
 
-    /* 漢堡選單相關樣式 */
     .header .menu {
       clear: both;
       max-height: 0;
-      overflow: hidden;
       transition: max-height 0.2s ease-out;
+      
     }
 
     .header .menu-icon {
@@ -76,9 +77,8 @@
       float: right;
       padding: 28px 20px;
       user-select: none;
-      transform: scale(1.3); /* ✅ 放大整個圖示 */
+      transform: scale(1.3);
       transform-origin: top right;
-       
     }
 
     .header .menu-icon .navicon {
@@ -114,7 +114,7 @@
     }
 
     .header .menu-btn:checked ~ .menu {
-      max-height: 300px;
+      max-height: 800px;
     }
 
     .header .menu-btn:checked ~ .menu-icon .navicon {
@@ -131,41 +131,121 @@
       top: 0;
     }
 
-    /* 桌面版樣式（大於等於 1024px） */
-    @media (min-width: 850px) {
-      body {
-        font-size: 1em; /* 恢復正常字體大小 */
-      }
-
-      .header li {
-        float: left;
-      }
-
-      .header li a {
-        padding: 20px 30px;
-        font-size: 1.3em; /* 正常字體大小 */
-      }
-
-      .header .menu {
-        clear: none;
-        float: right;
-        max-height: none;
-      }
-     .header .menu-icon {
-    display: none; /* ✅ 大螢幕應該隱藏漢堡圖示 */
-  }
+    /* 子選單樣式 */
+    .submenu {
+      display: none;
+      position: relative;
+      background-color: white;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      top: 100%;
+      left: 0;
+      width: 50px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 9999;
     }
 
-      @media (max-width: 849px) {
-  .header .menu-icon .navicon,
-  .header .menu-icon .navicon:before,
-  .header .menu-icon .navicon:after {
-    height: 3px;  /* 原本是 2px，更明顯 */
-    width: 24px;  /* 原本是 18px，更清楚 */
+    .submenu li {
+  display: block;  
+      
+}
+
+.submenu li a {
+  display: block;        /* ✅ 填滿整個選項區域 */
+  padding: 12px 20px;
+ 
+}
+
+.dropdown.open > .submenu {
+  display: block;
+
+  
+}
+    .dropdown-toggle::after {
+  content: '▼';
+  font-size: 0.7em;
+  margin-left: 5px;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+/* 如果下拉展開，加旋轉動畫 */
+.dropdown.open > .dropdown-toggle::after {
+  transform: rotate(180deg); /* 讓箭頭向上 */
+}
+
+
+    /* 桌面版樣式 */
+    @media (min-width: 850px) {
+      body {
+    font-size: 1em;
+  }
+
+  .header li {
+    float: left;
+    position: relative; /* ✅ 必須有 */
+  }
+
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+
+  .header .menu-icon {
+    display: none;
   }
 }
     
+
+    /* 小螢幕時加強漢堡條 */
+    @media (max-width: 849px) {
+      .header .menu-icon .navicon,
+      .header .menu-icon .navicon:before,
+      .header .menu-icon .navicon:after {
+        height: 3px;
+        width: 24px;
+      }
+
+      .submenu {
+        position: static;
+        box-shadow: none;
+      }
+    }
   </style>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggles = document.querySelectorAll('.dropdown-toggle');
+
+    toggles.forEach(function (toggle) {
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        const parent = this.parentElement;
+        const isOpen = parent.classList.contains('open');
+
+        document.querySelectorAll('.dropdown').forEach(function (item) {
+          item.classList.remove('open');
+        });
+
+        if (!isOpen) {
+          parent.classList.add('open');
+        }
+      });
+    });
+
+    // 🔧 新增這段：點擊空白關閉下拉
+    document.addEventListener('click', function (e) {
+      const isDropdown = e.target.closest('.dropdown');
+      if (!isDropdown) {
+        document.querySelectorAll('.dropdown').forEach(function (item) {
+          item.classList.remove('open');
+        });
+      }
+    });
+  });
+  
+</script>
 </head>
 <body>
   <header class="header">
@@ -180,10 +260,24 @@
     <ul class="menu">
       <li><a href="#">首頁</a></li>
       <li><a href="#">關於我們</a></li>
-      <li><a href="#">產品服務</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">產品服務</a>
+        <ul class="submenu">
+          <li><a href="#">Product1</a></li>
+          <li><a href="#">Product2</a></li>
+          <li><a href="#">Product3</a></li>
+          <li><a href="#">Product4</a></li>
+          <li><a href="#">Product5</a></li>
+        </ul>
+      </li>
       <li><a href="#">聯絡我們</a></li>
     </ul>
   </header>
-  哈樓您好
+
+  <p>哈樓您好</p>
+  
+
+  
 </body>
 </html>
+
