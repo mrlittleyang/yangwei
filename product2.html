@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>洋威公司</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Helvetica, sans-serif;
+      background-color: #f4f4f4;
+      font-size: 1.3em;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .header {
+      background-color: #fff;
+      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      width: 100%;
+      z-index: 3;
+      overflow: hidden;
+      
+    }
+
+    .header ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      background-color: #fff;
+      position: static; /* ✅ 不要加 relative */
+    }
+
+    .header li {
+      position: relative;
+    }
+
+    .header li a {
+      display: block;
+      padding: 20px 20px;
+      border-right: 1px solid #f4f4f4;
+      font-size: 1.3em;
+    }
+
+    .header li a:hover,
+    .header .menu-btn:hover {
+      background-color: #f4f4f4;
+    }
+
+    .header .logo {
+      display: inline;
+      align-items: center;
+      font-size: 2em;
+      padding: 10px 20px;
+      color: black;
+      gap: 10px;
+    }
+
+    .header .logo img {
+      height: 1.3em;
+      width: auto;
+    }
+
+    .header .menu {
+      clear: both;
+      max-height: 0;
+      transition: max-height 0.2s ease-out;
+      
+    }
+
+    .header .menu-icon {
+      cursor: pointer;
+      float: right;
+      padding: 28px 20px;
+      user-select: none;
+      transform: scale(1.3);
+      transform-origin: top right;
+    }
+
+    .header .menu-icon .navicon {
+      background: #333;
+      display: block;
+      height: 2px;
+      position: relative;
+      width: 18px;
+      transition: background 0.2s ease-out;
+    }
+
+    .header .menu-icon .navicon:before,
+    .header .menu-icon .navicon:after {
+      content: '';
+      background: #333;
+      display: block;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      transition: all 0.2s ease-out;
+    }
+
+    .header .menu-icon .navicon:before {
+      top: 5px;
+    }
+
+    .header .menu-icon .navicon:after {
+      top: -5px;
+    }
+
+    .header .menu-btn {
+      display: none;
+    }
+
+    .header .menu-btn:checked ~ .menu {
+      max-height: 800px;
+    }
+
+    .header .menu-btn:checked ~ .menu-icon .navicon {
+      background: transparent;
+    }
+
+    .header .menu-btn:checked ~ .menu-icon .navicon:before {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+
+    .header .menu-btn:checked ~ .menu-icon .navicon:after {
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    /* 子選單樣式 */
+    .submenu {
+      display: none;
+      position: relative;
+      background-color: white;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    .submenu li {
+  display: block;  
+      
+}
+
+.submenu li a {
+  display: block;/* ✅ 填滿整個選項區域 */
+  padding: 0;   
+}
+
+.dropdown.open > .submenu {
+  display: block;
+
+  
+}
+    .dropdown-toggle::after {
+  content: '▼';
+  font-size: 0.7em;
+  margin-left: 5px;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+/* 如果下拉展開，加旋轉動畫 */
+.dropdown.open > .dropdown-toggle::after {
+  transform: rotate(180deg); /* 讓箭頭向上 */
+}
+         .self-introduction {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+    .self-introduction h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.self-introduction p {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+    
+
+
+
+
+    /* 桌面版樣式 */
+    @media (min-width: 850px) {
+      body {
+    font-size: 1em;
+  }
+
+  .header li {
+    float: left;
+    position: relative; /* ✅ 必須有 */
+  }
+
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+
+  .header .menu-icon {
+    display: none;
+  }
+      .submenu {
+      display: none;
+      position: abosolute;
+      background-color: white;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      top: 100%;
+      left: 0;
+      height:100%;
+      width: 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    .submenu li {
+  display: block;  
+      
+}
+
+.submenu li a {
+  display: block;        /* ✅ 填滿整個選項區域 */
+  padding: 0;
+  white-space: nowrap;
+ 
+}
+
+.dropdown.open > .submenu {
+  display: block;
+
+  
+}
+}
+
+
+
+   
+    /* 小螢幕時加強漢堡條 */
+    @media (max-width: 849px) {
+      .header .menu-icon .navicon,
+      .header .menu-icon .navicon:before,
+      .header .menu-icon .navicon:after {
+        height: 3px;
+        width: 24px;
+      }
+
+      .submenu {
+        position: static;
+        box-shadow: none;
+      }
+    }
+  </style>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggles = document.querySelectorAll('.dropdown-toggle');
+
+    toggles.forEach(function (toggle) {
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        const parent = this.parentElement;
+        const isOpen = parent.classList.contains('open');
+
+        document.querySelectorAll('.dropdown').forEach(function (item) {
+          item.classList.remove('open');
+        });
+
+        if (!isOpen) {
+          parent.classList.add('open');
+        }
+      });
+    });
+
+    // 🔧 新增這段：點擊空白關閉下拉
+    document.addEventListener('click', function (e) {
+      const isDropdown = e.target.closest('.dropdown');
+      if (!isDropdown) {
+        document.querySelectorAll('.dropdown').forEach(function (item) {
+          item.classList.remove('open');
+        });
+      }
+    });
+  });
+  
+</script>
+<script>
+function downloadPDF() {
+  // 替換為你的PDF文件的URL
+  var pdfUrl = 'yamawa目錄.pdf';
+  
+  // 使用 JavaScript 打開新窗口來顯示 PDF 文件
+  window.open(pdfUrl);
+}
+function downloadPDF2() {
+  // 替換為你的PDF文件的URL
+  var pdfUrl = 'osg目錄.pdf';
+  
+  // 使用 JavaScript 打開新窗口來顯示 PDF 文件
+  window.open(pdfUrl);
+}</script>
+</head>
+<body>
+  <header class="header">
+    <a href="#" class="logo">
+      <img src="logo.png" alt="Logo">
+      洋威網站
+    </a>
+    <input class="menu-btn" type="checkbox" id="menu-btn">
+    <label class="menu-icon" for="menu-btn">
+      <span class="navicon"></span>
+    </label>
+    <ul class="menu">
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="about.html">關於我們</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">產品服務</a>
+        <ul class="submenu">
+          <li><a href="product1.html">ES_目錄</a></li>
+          <li><a href="product2.html">Yamawa_目錄,Osg_目錄</a></li>
+          <li><a href="#">Product3</a></li>
+          <li><a href="#">Product4</a></li>
+          <li><a href="#">Product5</a></li>
+        </ul>
+      </li>
+      <li><a href="#">聯絡我們</a></li>
+    </ul>
+  </header>
+<div  class="self-introduction">
+    <h2>產品簡介</h2>
+  <p>ES相關產品簡介</p>
+  <img src="yamawa封面.jpg" onclick="downloadPDF()"><br>ES相關產品簡介</img><br>
+<button onclick="downloadPDF()">下載pdf檔</button> 
+</div>
+<div  class="self-introduction">
+    <h2>產品簡介</h2>
+  <p>ES相關產品簡介</p>
+  <img src="osg封面.pdf" onclick="downloadPDF2()"><br>ES相關產品簡介</img><br>
+<button onclick="downloadPDF()">下載pdf檔</button> 
+</div>
+  <div>公司電話:(02)2961-0083</div>
+  <div>公司傳真:(02)2961-9579</div>
+
+  
+</body>
+</html>
