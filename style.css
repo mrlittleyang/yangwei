@@ -169,6 +169,11 @@
 a.underline {
       text-decoration: underline;
 }
+.container{
+ display: flex;
+  flex-direction: row; 
+
+}
  
 
 
@@ -225,6 +230,9 @@ a.underline {
 
   
 }
+      .container{
+       flex-direction: column;
+      }
 }
  
     /* 小螢幕時加強漢堡條 */
@@ -241,6 +249,7 @@ a.underline {
         box-shadow: none;
       }
     }
+
 
 
 
