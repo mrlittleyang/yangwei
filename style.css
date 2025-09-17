@@ -171,7 +171,7 @@ a.underline {
 }
 .container{
  display: flex;
-  flex-direction: row; 
+  flex-direction: column; 
 
 }
  
@@ -231,7 +231,7 @@ a.underline {
   
 }
       .container{
-       flex-direction: column;
+       flex-direction: row;
       }
 }
  
@@ -249,6 +249,7 @@ a.underline {
         box-shadow: none;
       }
     }
+
 
 
 
