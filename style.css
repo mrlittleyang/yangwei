@@ -176,6 +176,9 @@ a.underline {
 .company_align {
   margin-bottom: 10px;
 }
+.self-introduction {
+  margin-bottom:10px;
+}
 
  
 
@@ -255,6 +258,7 @@ a.underline {
         box-shadow: none;
       }
     }
+
 
 
 
