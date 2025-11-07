@@ -1,4 +1,4 @@
-  body {
+body {
       margin: 0;
       font-family: Helvetica, sans-serif;
       background-color: #f4f4f4;
@@ -13,8 +13,8 @@
     .header {
       background-color: #fff;
       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
-      position: relative;
-      width:100%;
+      position: fixed;
+        width:100%;
       z-index: 3;
       overflow: hidden;
       
@@ -24,7 +24,7 @@
       margin: 0;
       padding: 0;
       list-style: none;
-      background-color: #fff;
+      
       position: static; /* ✅ 不要加 relative */
     }
 
@@ -172,12 +172,15 @@ a.underline {
   .container {
    display: flex;
   flex-direction: column;
+  
 }
          .self-introduction {
   background-color: #f8f8f8;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top:50px;
+  
 }
     .self-introduction h2 {
   color: #333;
@@ -219,15 +222,15 @@ a.underline {
   }
       .submenu {
       display: none;
-      position: absolute;
+      position: fixed;
       background-color: white;
       list-style: none;
+      top: 100%; 
       padding: 0;
       margin: 0;
-      top: 100%;
       left: 0;
-      height:100%;
-      width: 0;
+      height:100%;    
+      width: 0; 
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       z-index: 10;
     }
@@ -271,10 +274,6 @@ a.underline {
         box-shadow: none;
       }
     }
-
-
-
-
 
 
 
