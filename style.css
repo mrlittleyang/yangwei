@@ -174,7 +174,7 @@ a.underline {
   flex-direction: column;
 }
 .company-align {
-  margin-top:160px;
+  height:160px;
 }
  .container .self-introduction{
    margin-top:160px;
@@ -259,6 +259,7 @@ a.underline {
         box-shadow: none;
       }
     }
+
 
 
 
