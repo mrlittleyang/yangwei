@@ -13,7 +13,7 @@
     .header {
       background-color: #fff;
       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
-      position: fixed;
+      position: relative;
       width:100%;
       z-index: 3;
       overflow: hidden;
@@ -238,7 +238,7 @@ a.underline {
 }
 
 .submenu li a {
-  display: none;        /* ✅ 填滿整個選項區域 */
+  display: block;        /* ✅ 填滿整個選項區域 */
   padding: 0;
   white-space: nowrap;
  
@@ -271,6 +271,7 @@ a.underline {
         box-shadow: none;
       }
     }
+
 
 
 
