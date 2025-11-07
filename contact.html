@@ -20,7 +20,7 @@
     .header {
       background-color: #fff;
       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
-      position: relative;
+      position: fixed;
       width: 100%;
       z-index: 3;
       overflow: hidden;
@@ -173,11 +173,17 @@
 .dropdown.open > .dropdown-toggle::after {
   transform: rotate(180deg); /* 讓箭頭向上 */
 }
+      .container {
+   display: flex;
+  flex-direction: column;
+}
+ 
          .self-introduction {
   background-color: #f8f8f8;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top:50px;
 }
     .self-introduction h2 {
   color: #333;
@@ -190,9 +196,6 @@
   font-size: 16px;
   margin-bottom: 15px;
 }
-    a.underline {
-      text-decoration: underline;
-    }
     
 
 
@@ -220,7 +223,7 @@
   }
       .submenu {
       display: none;
-      position: absolute;
+      position: abosolute;
       background-color: white;
       list-style: none;
       padding: 0;
@@ -251,25 +254,7 @@
   
 }
 }
-.contact {
-  border: 1px solid #ccc;     /* 邊框 */
-  background-color: #f9f9f9;  /* 背景色 */
-  padding: 20px;              /* 內距 */
-  margin: 10px 0;             /* 外距 */
-  border-radius: 8px;         /* 圓角 */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 陰影 */
-  font-family: Arial, sans-serif;       /* 字型 */
-}
 
-.contact h3 {
-  margin-top: 0;
-  color: #333;
-}
-
-.contact p {
-  margin: 5px 0;
-  color: #555;
-}
 
 
    
@@ -320,7 +305,14 @@
   });
   
 </script>
-
+<script>
+function downloadPDF() {
+  // 替換為你的PDF文件的URL
+  var pdfUrl = '5up_catalog.pdf';
+  
+  // 使用 JavaScript 打開新窗口來顯示 PDF 文件
+  window.open(pdfUrl);
+}</script>
 </head>
 <body>
   <header class="header">
@@ -348,23 +340,28 @@
       <li><a href="contact.html">聯絡我們</a></li>
     </ul>
   </header>
-<div class="contact">
-  <h3>聯絡資訊</h3>
-  <p>職稱:業務謝先生</p>
-  <p>手機：0932341952</p>
-</div>
-<div class="contact">
-  <h3>聯絡資訊</h3>
-  <p>職稱:業務助理謝先生</p>
-  <p>手機：0905102218</p>
+  <div class="container">
+<div  class="self-introduction">
+    <h2>產品簡介</h2>
+  <p>5up相關產品簡介</p>
+  <img src="5up封面2.jpg" onclick="downloadPDF()"><br>5up相關產品簡介</img><br>
+<button onclick="downloadPDF()">下載pdf檔</button> 
 </div>
   <div>公司電話:(02)2961-0083</div>
   <div>公司傳真:(02)2961-9579</div>
-  <div>公司電子信箱：<a href="mailto:aaa999.aaa999@msa.hinet.net" class="underline">aaa999.aaa999@msa.hinet.net</a></p></div>
+</div>
 
   
 </body>
 </html>
+
+
+
+
+
+
+
+
 
 
 
