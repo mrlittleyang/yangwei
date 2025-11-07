@@ -127,7 +127,7 @@
     /* 子選單樣式 */
     .submenu {
       display: none;
-      position: relative;
+      position: fixed;
       background-color: white;
       list-style: none;
       padding: 0;
@@ -271,6 +271,7 @@ a.underline {
         box-shadow: none;
       }
     }
+
 
 
 
