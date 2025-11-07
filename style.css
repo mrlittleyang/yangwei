@@ -216,7 +216,7 @@ a.underline {
     display: none;
   }
       .submenu {
-      display: block;
+      display: none;
       position: absolute;
       background-color: white;
       list-style: none;
@@ -231,12 +231,12 @@ a.underline {
     }
 
     .submenu li {
-  display: block;  
+  display: none;  
       
 }
 
 .submenu li a {
-  display: block;        /* ✅ 填滿整個選項區域 */
+  display: none;        /* ✅ 填滿整個選項區域 */
   padding: 0;
   white-space: nowrap;
  
@@ -269,6 +269,7 @@ a.underline {
         box-shadow: none;
       }
     }
+
 
 
 
