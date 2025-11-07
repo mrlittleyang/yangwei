@@ -217,7 +217,7 @@ a.underline {
   }
       .submenu {
       display: none;
-      position: absolute;
+      position: fixed;
       background-color: white;
       list-style: none;
       padding: 0;
@@ -269,6 +269,7 @@ a.underline {
         box-shadow: none;
       }
     }
+
 
 
 
