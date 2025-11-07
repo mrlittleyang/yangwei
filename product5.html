@@ -173,6 +173,11 @@
 .dropdown.open > .dropdown-toggle::after {
   transform: rotate(180deg); /* 讓箭頭向上 */
 }
+      .container {
+   display: flex;
+  flex-direction: column;
+}
+ 
          .self-introduction {
   background-color: #f8f8f8;
   padding: 20px;
@@ -334,6 +339,7 @@ function downloadPDF() {
       <li><a href="contact.html">聯絡我們</a></li>
     </ul>
   </header>
+  <div class="container">
 <div  class="self-introduction">
     <h2>產品簡介</h2>
   <p>5up相關產品簡介</p>
@@ -342,10 +348,12 @@ function downloadPDF() {
 </div>
   <div>公司電話:(02)2961-0083</div>
   <div>公司傳真:(02)2961-9579</div>
+</div>
 
   
 </body>
 </html>
+
 
 
 
