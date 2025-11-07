@@ -173,7 +173,7 @@ a.underline {
    display: flex;
   flex-direction: column;
 }
-.company_align {
+.company-align {
   height: 1000px;
 }
 .self-introduction {
@@ -258,6 +258,7 @@ a.underline {
         box-shadow: none;
       }
     }
+
 
 
 
