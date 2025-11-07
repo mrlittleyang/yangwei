@@ -4,9 +4,6 @@
       background-color: #f4f4f4;
       font-size: 1.3em;
     }
-body p {
-  margin-top:50px
-}
 
     a {
       color: #000;
@@ -255,6 +252,7 @@ a.underline {
         box-shadow: none;
       }
     }
+
 
 
 
