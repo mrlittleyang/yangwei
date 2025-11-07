@@ -126,13 +126,14 @@
 
     /* 子選單樣式 */
     .submenu {
-      display: block;
-      position: fixed;
+      display: none;
+      position: relative;
       background-color: white;
       list-style: none;
       padding: 0;
       margin: 0;
       top: 100%;
+      width:100%
       left: 0;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       z-index: 10;
@@ -270,6 +271,7 @@ a.underline {
         box-shadow: none;
       }
     }
+
 
 
 
